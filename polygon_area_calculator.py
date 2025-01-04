@@ -29,8 +29,8 @@ class Rectangle:
             return pic
 
     def get_amount_inside(self, other):
-        amount = (self.get_area()) / (other.get_area())
-        width_times = self.width // other.width
+        amount = (self.get_area()) / (other.get_area()) #For perfect fits, when other is a square
+        width_times = self.width // other.width #for other cases, when other is a rectangle 
         height_times = self.height // other.height
         if amount.is_integer():
             return amount
@@ -64,7 +64,4 @@ class Square(Rectangle):
         super().set_height(new_height)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}(side={self.side})"
-
-    def __str__(self):
         return f"{self.__class__.__name__}(side={self.side})"
